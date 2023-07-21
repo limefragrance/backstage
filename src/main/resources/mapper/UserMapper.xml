@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.shenxiang.mapper.UserMapper">
+    <!--List<User> selectAllUser();-->
+    <select id="selectAllUser" resultType="com.shenxiang.pojo.User">
+        select * from user
+    </select>
+
+    <!--void addUser(User user);-->
+    <insert id="addUser">
+        insert into user values (null,#{name},#{age},#{gender},#{birthday},#{addr})
+    </insert>
+
+    <!--List<User> selectUserByName(String name);-->
+    <select id="selectUserByName" resultType="com.shenxiang.pojo.User">
+        select * from user where `name` like "%"#{name}"%"
+    </select>
+
+    <!--void updataUser(User user);-->
+    <update id="updataUser">
+        update user set `name`=#{name},age=#{age},gender=#{gender},birthday=#{birthday},addr=#{addr}  where id=#{id}
+    </update>
+
+
+
+
+</mapper>
